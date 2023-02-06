@@ -16,7 +16,8 @@ const Registration = () => {
         let lastName=lastNameRef.value;
         let mobile=mobileRef.value;
         let password= passwordRef.value;
-        let photo="https://i.pravatar.cc/300"
+        //let photo="https://i.pravatar.cc/300"
+        let photo = "photo"
 
         if(IsEmail(email)){
             toast.error("Valid Email Address Required !")
@@ -38,7 +39,6 @@ const Registration = () => {
                 if(result===true){
                     navigate("/login")
                 }
-                    console.log(result)
             })
         }
     }
@@ -75,7 +75,7 @@ const Registration = () => {
                                         </div>
 
                                     </div>
-                                    <div lassName="row mt-2 p-0">
+                                    <div className="row mt-2 p-0">
                                         <div className="col-md-12 p-2">
                                             <button onClick={handleRegistration}  className="btn btn-sm mt-3 w-100 float-end btn-primary animated fadeInUp">Submit</button>
                                         </div>

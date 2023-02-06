@@ -3,6 +3,7 @@ import {Container,Navbar} from "react-bootstrap";
 import {NavLink} from "react-router-dom";
 import './sidebar.css'
 import './dropdownmenu.css'
+import { BsBackspace, BsBorderWidth, BsBoundingBox, BsBrightnessHigh } from "react-icons/bs";
 
 const MainLayout = (props) => {
 
@@ -38,7 +39,8 @@ const MainLayout = (props) => {
                         <a className="icon-nav m-0 h5" onClick={MenuBarClickHandler}> 
                         <i class="fa-solid fa-sliders"></i>
                         </a>
-                        <i class="fa-brands fa-digital-ocean nav-logo mx-5">Task Manager</i>
+                        <i class="fa-brands fa-digital-ocean nav-logo ms-5 me-2 text-danger"></i>
+                            <b>Task Manager</b>
                         {/* <img className="nav-logo mx-2"  src={logo} alt="logo"/> */}
 
                     </Navbar.Brand>
@@ -72,25 +74,25 @@ const MainLayout = (props) => {
 
                 <NavLink   className={(navData) => navData.isActive ? "side-bar-item-active side-bar-item mt-2" : "side-bar-item mt-2" }  to="/"  end>
                     {/* <a className="side-bar-item-icon" /> */}
-                    <i class="fa-solid fa-circle-check side-bar-item-icon"></i>
+                    <BsBoundingBox className=" side-bar-item-icon"/>
                     <span className="side-bar-item-caption">Dashboard</span>
                 </NavLink>
 
                 <NavLink className={(navData) => navData.isActive ? "side-bar-item-active side-bar-item mt-2" : "side-bar-item mt-2" } to="/Create" >
                     {/* <a className="side-bar-item-icon" /> */}
-                    <i class="fa-solid fa-circle-check side-bar-item-icon"></i>
+                    <i class="fa-regular fa-pen-to-square side-bar-item-icon"></i>
                     <span className="side-bar-item-caption">Create New</span>
                 </NavLink>
 
                 <NavLink className={(navData) => navData.isActive ? "side-bar-item-active side-bar-item mt-2" : "side-bar-item mt-2" } to="/All" >
                     {/* <a className="side-bar-item-icon" /> */}
-                    <i class="fa-solid fa-circle-check side-bar-item-icon"></i>
+                    <BsBorderWidth className=" side-bar-item-icon"/>
                     <span className="side-bar-item-caption">New Task</span>
                 </NavLink>
 
                 <NavLink className={(navData) => navData.isActive ? "side-bar-item-active side-bar-item mt-2" : "side-bar-item mt-2" } to="/Progress" >
                     {/* <a className="side-bar-item-icon" /> */}
-                    <i class="fa-solid fa-circle-check side-bar-item-icon"></i>
+                    <BsBrightnessHigh className=" side-bar-item-icon"/>
                     <span className="side-bar-item-caption">In Progress</span>
                 </NavLink>
 
@@ -102,7 +104,7 @@ const MainLayout = (props) => {
 
                 <NavLink className={(navData) => navData.isActive ? "side-bar-item-active side-bar-item mt-2" : "side-bar-item mt-2" }  to="/Canceled" >
                     {/* <a className="side-bar-item-icon" /> */}
-                    <i class="fa-solid fa-circle-check side-bar-item-icon"></i>
+                    <BsBackspace className=" side-bar-item-icon"/>
                     <span className="side-bar-item-caption">Canceled</span>
                 </NavLink>
 
