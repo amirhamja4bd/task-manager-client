@@ -12,7 +12,7 @@ const Registration = () => {
     const handleRegistration = () => {
 
         let email=emailRef.value;
-        let fastName=firstNameRef.value;
+        let firstName=firstNameRef.value;
         let lastName=lastNameRef.value;
         let mobile=mobileRef.value;
         let password= passwordRef.value;
@@ -21,7 +21,7 @@ const Registration = () => {
         if(IsEmail(email)){
             toast.error("Valid Email Address Required !")
         }
-        else if(IsEmpty(fastName)){
+        else if(IsEmpty(firstName)){
             toast.error("First Name Required !")
         }
         else if(IsEmpty(lastName)){
@@ -34,7 +34,7 @@ const Registration = () => {
             toast.error("Password Required !")
         }
         else{
-            registrationRequest(email,fastName,lastName,mobile,password,photo).then((result)=>{
+            registrationRequest(email,firstName,lastName,mobile,password,photo).then((result)=>{
                 if(result===true){
                     navigate("/login")
                 }

@@ -3,12 +3,11 @@ import { toast } from "react-hot-toast";
 
 const BaseURL="http://localhost:5000/api/v1"
 
-export function registrationRequest(email,firstName,lastName,mobile,password){
+export function registrationRequest(email,firstName,lastName,mobile,password,photo){
     
     let URL=BaseURL+"/registration";
-    let PostBody={email:email,firstName:firstName,lastName:lastName,mobile:mobile,password:password}
+    let PostBody={email:email,firstName:firstName,lastName:lastName,mobile:mobile,password:password,photo:photo}
     return axios.post(URL,PostBody).then((res)=>{
-        
         if(res.status===200){
             if(res.data['status']==="fail"){
                 if(res.data['data']['keyPattern']['email']===1){
@@ -30,7 +29,6 @@ export function registrationRequest(email,firstName,lastName,mobile,password){
             return  false;
         }
     }).catch((err)=>{
-        
         toast.error("Something Went Wrong")
         return false;
     })
