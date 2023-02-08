@@ -1,9 +1,14 @@
 import React, { Fragment } from 'react';
 import './progress.css';
+import {useSelector} from "react-redux";
+
 const FullscreenLoader = () => {
+
+    const loader = useSelector((state) => state.settings.loader)
+
     return (
         <Fragment>
-            <div className={" LoadingOverlay d-none"}>
+            <div className={loader+" LoadingOverlay"}>
                 <div className="Line-Progress">
                     <div className="indeterminate"></div>
                 </div>

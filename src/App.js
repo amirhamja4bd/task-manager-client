@@ -21,8 +21,8 @@ const App = () => {
       <BrowserRouter>
       <Toaster/>
         <Routes>
-          <Route path='/l' element={<Login/>} />
-          <Route path='/r' element={<Registration/>} />
+          <Route path='/login' element={<Login/>} />
+          <Route path='/registration' element={<Registration/>} />
           <Route path='/home' element={<HomePage/>} />
           <Route path='/' element={<DashboardPage/>} />
           <Route path='/create' element={<CreatePage/>} />
