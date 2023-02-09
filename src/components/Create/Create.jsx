@@ -1,7 +1,32 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import {Container, Row} from "react-bootstrap";
+import { toast } from 'react-hot-toast';
+import {useNavigate} from "react-router-dom";
+import { newTaskRequest } from '../../APIRequest/APIRequest';
+import { IsEmpty } from '../../helper/FormHelper';
+
 
 const Create = () => {
+
+    let titleRef,descriptionRef=useRef();
+    let navigate = useNavigate ();
+
+    const CreateNew = () => {
+        let title=titleRef.value;
+        let description=descriptionRef.value;
+        
+        if(IsEmpty(title)){
+            toast.error('Title is required')
+        }
+        else{
+            newTaskRequest(title,description).then((res)=>{
+                if(res===true){
+                    navigate("/All")
+                }
+            })
+        }
+    }
+
     return (
         <Container fluid={true} className="content-body">
             <Row className="d-flex justify-content-center">
@@ -10,11 +35,11 @@ const Create = () => {
                         <div className="card-body">
                             <h4 >Create New</h4>
                             <br/>
-                            <input  placeholder="Task Name" className="form-control animated fadeInUp" type="text"/>
+                            <input  ref={(input)=>titleRef=input} placeholder="Task Name" className="form-control animated fadeInUp" type="text"/>
                             <br/>
-                            <textarea  rows={5} placeholder="Task Description" className="form-control animated fadeInUp" type="text"/>
+                            <textarea ref={(input)=>descriptionRef=input} rows={5} placeholder="Task Description" className="form-control animated fadeInUp" type="text"/>
                             <br/>
-                            <button onClick={''} className="btn float-end btn-primary">Create</button>
+                            <button onClick={CreateNew} className="btn float-end btn-primary"  style={{background:"#00b796", border:"none"}} >Create</button>
                         </div>
                     </div>
                 </div>

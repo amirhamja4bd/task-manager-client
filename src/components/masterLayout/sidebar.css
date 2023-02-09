@@ -1,11 +1,11 @@
 .icon-nav{
     padding: 6px;
     transition: 0.3s;
-    color: #606060;
+    color: #353535;
 }
 .icon-nav:hover{
     transition: 0.3s;
-    color: #363B64;
+    color: #000000;
 }
 .icon-nav:active{
     border-radius: 50%;
@@ -40,7 +40,7 @@
     overflow-x: hidden;
     transition: 0.3s;
     background-color: #ffffff;
-    border-right: 1px solid rgba(0,0,0,.075);
+    box-shadow: 5px 0 5px -4px #ccc;
     scrollbar-color: #CCCCCC #F5F5F5;
     scrollbar-width: thin;
 }
@@ -111,9 +111,10 @@
     text-decoration: none;
 }
 .side-bar-item:hover{
-    border-left: 4px solid #CB0C9F;
+    border-left: 4px solid #00b796;
+    border-radius: 8px;
     transition: 0.2s;
-    background-color: #F3D9EC;
+    background-color: #00b7963a;
 }
 .side-bar-item:hover .side-bar-item-icon {
     color: #363B64;
@@ -122,8 +123,13 @@
     color: #363B64;
 }
 .side-bar-item-active{
-    border-left: 4px solid #CB0C9F;
-    background-color:#F3D9EC;
+    border-left: 4px solid #00b796;
+    border-radius: 8px;
+    background-image: url("a.svg");
+    background-repeat: no-repeat;
+    background-size: 50px;
+    background-position: right;
+    background-color:#00b7963a;
 }
 .side-bar-item-icon{
     font-size: 18px;

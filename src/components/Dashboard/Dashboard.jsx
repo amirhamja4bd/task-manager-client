@@ -1,21 +1,33 @@
-import React from 'react';
+import React, {Fragment, useEffect} from 'react';
+import { useSelector } from 'react-redux';
+import { summaryRequest } from '../../APIRequest/APIRequest';
 
 const Dashboard = () => {
+
+    useEffect(()=>{
+        summaryRequest();
+    },[])
+
+    const SummaryList = useSelector((state) => state.summary.value)
+
     return (
-        <div>
+        <Fragment>
             <div className="container">
                 <div className="row">
-                    <div  className="col-12 col-lg-3 col-sm-6 col-md-3  p-2">
-                        <div className="card h-100 shadow border-white">
-                            <div className="card-body">
-                                <h5 className="animated fadeInUp">Total </h5>
-                                <h6 className="text-secondary animated fadeInUp">00</h6>
+                    {SummaryList.map((item, i)=>(
+                        <div  className="col-12 col-lg-3 col-sm-6 col-md-3  p-2">
+                            <div className="card h-100 shadow border-white">
+                                <div className="card-body">
+                                    <h5 className="animated fadeInUp">Total {item._id} </h5>
+                                    <h6 className="text-secondary animated fadeInUp">{item.sum}</h6>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    ))}
+                    
                 </div>
             </div>
-        </div>
+        </Fragment>
     );
 };
 

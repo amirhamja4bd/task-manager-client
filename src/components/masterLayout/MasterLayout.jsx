@@ -3,14 +3,16 @@ import {Container,Navbar} from "react-bootstrap";
 import {NavLink} from "react-router-dom";
 import './sidebar.css'
 import './dropdownmenu.css'
-import { BsBackspace, BsBorderWidth, BsBoundingBox, BsBrightnessHigh } from "react-icons/bs";
+import { BsBackspace, BsBoxArrowLeft, BsBoundingBox, BsBrightnessHigh, BsTextParagraph } from "react-icons/bs";
+import {getUserDetails, removeSessions} from "../../helper/SessionHelper";
+
 
 const MainLayout = (props) => {
 
     let contentRef,sideNavRef=useRef();
 
     const onLogout=()=>{
-        
+        removeSessions();
     }
 
     const MenuBarClickHandler = () => {
@@ -39,7 +41,7 @@ const MainLayout = (props) => {
                         <a className="icon-nav m-0 h5" onClick={MenuBarClickHandler}> 
                         <i class="fa-solid fa-sliders"></i>
                         </a>
-                        <i class="fa-brands fa-digital-ocean nav-logo ms-5 me-2 text-danger"></i>
+                        <i class="fa-brands fa-digital-ocean nav-logo ms-5 me-2 my-text-primary"></i>
                             <b>Task Manager</b>
                         {/* <img className="nav-logo mx-2"  src={logo} alt="logo"/> */}
 
@@ -47,13 +49,15 @@ const MainLayout = (props) => {
 
                     <div className="float-right h-auto d-flex">
                         <div className="user-dropdown">
-                            {/* <img className="icon-nav-img icon-nav" src={logo} alt=""/> */}
-                            <i class="fa-solid fa-user"></i>
+                            <div className="d-flex my-bg-primary px-1 pt-1" style={{borderRadius:"40px"}}>
+                                <img className="icon-nav-img icon-nav" src={getUserDetails()['photo']} alt="" style={{width:"40px", height:"40px"}}/>
+                                <p className="align-middle pe-2 text-light" style={{marginTop:"9px"}}>{getUserDetails()['firstName'] + ' ' + getUserDetails()['lastName']}</p>
+                            </div>
                             <div className="user-dropdown-content ">
                                 <div className="mt-4 text-center">
-                                    {/* <img className="icon-nav-img" src={logo} alt=""/> */}
-                                    <i class="fa-solid fa-face-grin-tongue-squint"></i>
-                                    <h6>firstName</h6>
+                                    <img className="icon-nav-img icon-nav" src={getUserDetails()['photo']} alt=""/>
+                                    {/* <i class="fa-solid fa-face-grin-tongue-squint"></i> */}
+                                    <h6>{getUserDetails()['firstName'] + ' ' + getUserDetails()['lastName']}</h6>
                                     <hr className="user-dropdown-divider  p-0"/>
                                 </div>
                                 <NavLink to="/Profile" className="side-bar-item">
@@ -61,7 +65,8 @@ const MainLayout = (props) => {
                                     <span className="side-bar-item-caption">Profile</span>
                                 </NavLink>
                                 <a onClick={onLogout}  className="side-bar-item">
-                                    <i class="fa-solid fa-right-from-bracket side-bar-item-icon"></i>
+                                    
+                                    <BsBoxArrowLeft  className=" side-bar-item-icon" />
                                     <span className="side-bar-item-caption">Logout</span>
                                 </a>
                             </div>
@@ -86,7 +91,7 @@ const MainLayout = (props) => {
 
                 <NavLink className={(navData) => navData.isActive ? "side-bar-item-active side-bar-item mt-2" : "side-bar-item mt-2" } to="/All" >
                     {/* <a className="side-bar-item-icon" /> */}
-                    <BsBorderWidth className=" side-bar-item-icon"/>
+                    <BsTextParagraph className=" side-bar-item-icon" />
                     <span className="side-bar-item-caption">New Task</span>
                 </NavLink>
 

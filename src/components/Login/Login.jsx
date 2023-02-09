@@ -4,18 +4,22 @@ import { Link } from 'react-router-dom';
 import { loginRequest } from '../../APIRequest/APIRequest';
 import { IsEmail, IsEmpty} from "../../helper/FormHelper";
 
+
 const Login = () => {
 
     let passRef,emailRef=useRef();
 
     const SubmitLogin=()=>{
+        
         let email=emailRef.value;
         let pass=passRef.value;
         if(IsEmail(email)){
             toast.error("Invalid Email Address")
+            alert("Invalid Email Address")
         }
         else if(IsEmpty(pass)){
             toast.error("Password Required")
+            alert("Password Required")
         }
         else{
             loginRequest(email,pass).then((result)=>{
@@ -31,17 +35,19 @@ const Login = () => {
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-md-7 col-lg-6 center-screen">
-                        <div className="card w-100  p-4">
+                        <div className="card w-100 shadow p-4">
                             <div className="card-body">
                                 <h4 className='text-center'>SIGN IN</h4>
                                 <br/>
-                                <input  ref={(input)=>emailRef=input} placeholder="User Email" className="form-control animated fadeInUp" type="email"/>
+                                <input  ref={(input)=>emailRef=input} placeholder="User Email" className="form-control animated fadeInUp " type="email"/>
                                 <br/>
                                 <input ref={(input)=>passRef=input} placeholder="User Password" className="form-control animated fadeInUp" type="password"/>
 
                                 <Link className="text-center ms-3 h6 animated fadeInUp float-end" to="/SendOTP"><small>Forget Password</small></Link>
                                 <br/><br />
-                                <button onClick={SubmitLogin} className="btn w-100 animated fadeInUp float-end btn-primary ">Login</button>
+
+                                <button onClick={SubmitLogin} className="btn w-100 animated fadeInUp float-end my-bg-primary btn-primary " style={{background:"#00b796", border:"none"}}>Login</button>
+                                
                                 <hr/>
                                 <div className="float-end mt-3">
 

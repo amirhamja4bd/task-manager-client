@@ -16,8 +16,7 @@ const Registration = () => {
         let lastName=lastNameRef.value;
         let mobile=mobileRef.value;
         let password= passwordRef.value;
-        //let photo="https://i.pravatar.cc/300"
-        let photo = "photo"
+        let photo="https://i.pravatar.cc/300";
 
         if(IsEmail(email)){
             toast.error("Valid Email Address Required !")
@@ -47,7 +46,7 @@ const Registration = () => {
             <div className="container">
                 <div className="row  justify-content-center ">
                     <div className="col-md-10 col-lg-10 center-screen">
-                        <div className="card animated fadeIn w-75 p-3 mt-5">
+                        <div className="card animated shadow fadeIn w-75 p-3 mt-5">
                             <div className="card-body">
                                 <h4 className='text-center'>Sign Up</h4>
                                 <div className="container-fluid m-0 p-0">
@@ -76,7 +75,7 @@ const Registration = () => {
                                     </div>
                                     <div className="row mt-1">
                                         <div className="col-md-12 p-2">
-                                            <button onClick={handleRegistration}  className="btn  mt-3 w-100 float-end btn-primary animated fadeInUp">Submit</button>
+                                            <button onClick={handleRegistration}  className="btn  mt-3 w-100 float-end btn-primary animated fadeInUp"  style={{background:"#00b796", border:"none"}}>Submit</button>
                                         </div>
                                     </div>
                                     
