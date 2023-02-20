@@ -25,7 +25,6 @@ const App = () => {
         <BrowserRouter>
         <Toaster/>
           <Routes>
-            <Route path='/login' element={<Login/>} />
             <Route path='/' element={<DashboardPage/>} />
             <Route path='/create' element={<CreatePage/>} />
             <Route path='/all' element={<NewPage/>} />
@@ -50,9 +49,9 @@ const App = () => {
                   <Route path='/login' element={<Login/>} />
                   <Route path='/registration' element={<Registration/>} />
 
-                  <Route exact path="/sendOTP" element={<SendOTPPage/>}/>
-                  <Route exact path="/verifyOTP" element={<VerifyOTPPage/>}/>
-                  <Route exact path="/createPassword" element={<CreatePasswordPage/>}/>
+                  <Route exact path="/send-otp" element={<SendOTPPage/>}/>
+                  <Route exact path="/verify-otp" element={<VerifyOTPPage/>}/>
+                  <Route exact path="/create-password" element={<CreatePasswordPage/>}/>
 
                   <Route path="*" element={<Page404/>}/>
               </Routes>

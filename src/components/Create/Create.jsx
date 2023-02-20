@@ -39,7 +39,7 @@ const Create = () => {
                             <br/>
                             <textarea ref={(input)=>descriptionRef=input} rows={5} placeholder="Task Description" className="form-control animated fadeInUp" type="text"/>
                             <br/>
-                            <button onClick={CreateNew} className="btn float-end btn-primary"  style={{background:"#00b796", border:"none"}} >Create</button>
+                            <button onClick={CreateNew} className="btn float-end my-bg-primary" >Create</button>
                         </div>
                     </div>
                 </div>

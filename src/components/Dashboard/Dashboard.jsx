@@ -12,6 +12,17 @@ const Dashboard = () => {
 
     return (
         <Fragment>
+            {/* <form className="col-12 ms-auto col-md-6 col-lg-4 px-2 my-2">
+                <div className="row">
+                    <div className="col-8">
+                        <input className="form-control form-control-sm w-100"/>
+                    </div>
+                    <div className="col-4">
+                         <button className="btn btn-sm w-100 my-bg-primary"  >Search</button>
+                    </div>
+                </div>
+             </form> */}
+            
             <div className="container">
                 <div className="row">
                     {SummaryList.map((item, i)=>(

@@ -46,14 +46,14 @@ const MainLayout = (props) => {
                         {/* <img className="nav-logo mx-2"  src={logo} alt="logo"/> */}
 
                     </Navbar.Brand>
-
+                    
                     <div className="float-right h-auto d-flex">
-                        <div className="user-dropdown">
+                        <div className="user-dropdown ">
                             <div className="d-flex my-bg-primary px-1 pt-1" style={{borderRadius:"40px"}}>
                                 <img className="icon-nav-img icon-nav" src={getUserDetails()['photo']} alt="" style={{width:"40px", height:"40px"}}/>
-                                <p className="align-middle pe-2 text-light" style={{marginTop:"9px"}}>{getUserDetails()['firstName'] + ' ' + getUserDetails()['lastName']}</p>
+                                <p className="align-middle pe-2 text-light pt-2" style={{}}>{getUserDetails()['firstName'] + ' ' + getUserDetails()['lastName']}</p>
                             </div>
-                            <div className="user-dropdown-content ">
+                            <div className="user-dropdown-content shadow ">
                                 <div className="mt-4 text-center">
                                     <img className="icon-nav-img icon-nav" src={getUserDetails()['photo']} alt=""/>
                                     {/* <i class="fa-solid fa-face-grin-tongue-squint"></i> */}

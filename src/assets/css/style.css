@@ -38,17 +38,34 @@ a:hover {
 
 .swal2-styled:focus{
   box-shadow: none !important;
+  
+}
+input,
+textarea
+{
+  font-size: 13px!important;
+  border-radius: 10px!important;
+}
+
+button{
+  text-transform: uppercase!important;
+  font-size: 13px!important;
+  border-radius: 10px!important;
+}
+
+input::placeholder {
+  font-size: 13px!important;
 }
 input:focus,
 textarea:focus {
   box-shadow: none !important;
+  font-size: 13px!important;
+  border: 1px solid #00b796!important;
 }
 label{
-  font-size: 14px;
+  font-size: 12px;
 }
-:placeholder{
-  font-size: 14px;
-}
+
 
 /* @import "sidebar.css";
 @import "progress.css";

@@ -48,7 +48,7 @@ const Registration = () => {
                     <div className="col-md-10 col-lg-10 center-screen">
                         <div className="card animated shadow fadeIn w-75 p-3 mt-5">
                             <div className="card-body">
-                                <h4 className='text-center'>Sign Up</h4>
+                                <h4 className='text-center'>SIGN UP</h4>
                                 <div className="container-fluid m-0 p-0">
                                     <div className="row">
                                         <div className="col-md-12 p-2">
@@ -75,7 +75,7 @@ const Registration = () => {
                                     </div>
                                     <div className="row mt-1">
                                         <div className="col-md-12 p-2">
-                                            <button onClick={handleRegistration}  className="btn  mt-3 w-100 float-end btn-primary animated fadeInUp"  style={{background:"#00b796", border:"none"}}>Submit</button>
+                                            <button onClick={handleRegistration}  className="btn  mt-3 w-100 float-end my-bg-primary btn-sm animated fadeInUp" >Submit</button>
                                         </div>
                                     </div>
                                     
@@ -83,7 +83,7 @@ const Registration = () => {
 
                                         <span>
                                             <small className="ms-1">Already have account? </small>
-                                            <Link className="text-center ms-3 h6 animated fadeInUp" to="/login"><small>Sign In </small></Link>
+                                            <Link className="text-center ms-3 h6 animated fadeInUp my-text-primary" to="/login"><small>Sign In </small></Link>
                                         </span>
 
                                     </div>

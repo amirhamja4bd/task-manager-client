@@ -1,6 +1,7 @@
 .user-dropdown {
     position: relative;
     display: inline-block;
+    cursor: pointer;
 }
 .user-dropdown-content {
     display: none;

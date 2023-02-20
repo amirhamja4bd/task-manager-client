@@ -1,7 +1,11 @@
 .icon-nav{
-    padding: 6px;
+    padding: 2px;
     transition: 0.3s;
     color: #353535;
+}
+.icon-nav p{
+    padding: 0!important;
+    transition: 0.3s;
 }
 .icon-nav:hover{
     transition: 0.3s;
@@ -21,6 +25,7 @@
     object-fit: cover;
 }
 .icon-nav-img-lg{
+    border: 1px solid #00b796;
     border-radius: 50%;
     width: 85px ;
     height: 85px ;
@@ -30,7 +35,7 @@
 
 
 .side-nav-open {
-    margin-top: 62px;
+    margin-top: 65px;
     padding-top: 0px;
     height: 100%;
     width: 240px;
@@ -45,7 +50,7 @@
     scrollbar-width: thin;
 }
 .side-nav-close {
-    margin-top: 62px;
+    margin-top: 65px;
     padding-top: 0px;
     height: 100%;
     width: 0;
@@ -102,7 +107,6 @@
     width: auto;
     height: 30px;
 }
-
 
 .side-bar-item{
     display: inline-block;

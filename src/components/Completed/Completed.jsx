@@ -41,16 +41,16 @@ const Completed = () => {
                     <div className="col-12 col-md-6 col-lg-8 px-3">
                         <h5>Task Completed</h5>
                     </div>
-                    <div className="col-12 float-end col-md-6 col-lg-4 px-2">
+                    {/* <div className="col-12 float-end col-md-6 col-lg-4 px-2">
                         <div className="row">
                             <div className="col-8">
                                 <input className="form-control form-control-sm w-100"/>
                             </div>
                             <div className="col-4">
-                                <button className="btn btn-primary btn-sm w-100"  style={{background:"#00b796", border:"none"}}>Search</button>
+                                <button className="btn btn-sm w-100 my-bg-primary"  >Search</button>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="row p-0 m-0">
                     {CompletedList.map((item, i)=>(

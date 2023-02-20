@@ -43,17 +43,17 @@ const Login = () => {
                                 <br/>
                                 <input ref={(input)=>passRef=input} placeholder="User Password" className="form-control animated fadeInUp" type="password"/>
 
-                                <Link className="text-center ms-3 h6 animated fadeInUp float-end" to="/SendOTP"><small>Forget Password</small></Link>
+                                <Link className="text-center ms-3 h6 animated fadeInUp float-end  my-text-primary mt-1" to="/send-otp"><small>Forget Password</small></Link>
                                 <br/><br />
 
-                                <button onClick={SubmitLogin} className="btn w-100 animated fadeInUp float-end my-bg-primary btn-primary " style={{background:"#00b796", border:"none"}}>Login</button>
+                                <button onClick={SubmitLogin} className="btn w-100 animated fadeInUp float-end my-bg-primary ">Login</button>
                                 
                                 <hr/>
                                 <div className="float-end mt-3">
 
                                     <span>
                                     <small className="ms-1">Don’t have account?</small>
-                                        <Link className="text-center ms-3 h6 animated fadeInUp" to="/registration"><small>Sign Up </small></Link>
+                                        <Link className="text-center ms-3 h6 animated fadeInUp my-text-primary" to="/registration"><small>Sign Up </small></Link>
                                         
                                     </span>
 

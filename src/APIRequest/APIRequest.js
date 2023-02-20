@@ -6,6 +6,7 @@ import {SetCanceledTask, SetCompletedTask, SetNewTask, SetProgressTask} from "..
 import {SetSummary} from "../redux/state-slice/summary-slice";
 import {SetProfile} from "../redux/state-slice/profile-slice";
 import { setEmail, setOTP, getToken, setToken, setUserDetails } from "../helper/SessionHelper";
+import { UnAuthorizeRequest } from "./UnAuthorizeRequest";
 
 
 const BaseURL="http://localhost:5000/api/v1"
@@ -36,12 +37,13 @@ export function registrationRequest(email,firstName,lastName,mobile,password,pho
             }
         }
         else{
-            toast.error("Something Went Wrong 2")
+            toast.error("Something Went Wrong")
             return  false;
         }
     }).catch((err)=>{
+        toast.error("Something Went Wrong")
         store.dispatch(HideLoader())
-        toast.error("Something Went Wrong 3")
+        UnAuthorizeRequest(err);
         return false;
     })
 }
@@ -69,7 +71,7 @@ export function loginRequest(email,password){
     }).catch((err)=>{
         toast.error("Something Went Wrong")
         store.dispatch(HideLoader())
-        //UnAuthorizeRequest(err);
+        UnAuthorizeRequest(err);
         return false;
     });
 }
@@ -92,6 +94,7 @@ export function newTaskRequest(title,description){
     }).catch((err)=>{
         toast.error("Something Went Wrong")
         store.dispatch(HideLoader())
+        UnAuthorizeRequest(err);
         return false;
     })
 }
@@ -122,6 +125,7 @@ export function TaskListByStatus(Status){
     }).catch((err)=>{
         toast.error("Something Went Wrong")
         store.dispatch(HideLoader())
+        UnAuthorizeRequest(err);
         return false;
     });
 }
@@ -141,6 +145,7 @@ export function summaryRequest(){
     }).catch((err)=>{
         toast.error("Something Went Wrong")
         store.dispatch(HideLoader())
+        UnAuthorizeRequest(err);
         return false;
     });
 }
@@ -162,6 +167,7 @@ export function deleteRequest(id){
     }).catch((err)=>{
         toast.error("Something Went Wrong")
         store.dispatch(HideLoader())
+        UnAuthorizeRequest(err);
         return false;
     });
 }
@@ -183,6 +189,7 @@ export function updateStatusRequest(id,status){
     }).catch((err)=>{
         toast.error("Something Went Wrong catch")
         store.dispatch(HideLoader())
+        UnAuthorizeRequest(err);
         return false;
     });
 }
@@ -202,6 +209,7 @@ export function GetProfileDetails(){
     }).catch((err)=>{
         toast.error("Something Went Wrong")
         store.dispatch(HideLoader())
+        UnAuthorizeRequest(err);
     });
 }
 
@@ -225,14 +233,15 @@ export function ProfileUpdateRequest(email,firstName,lastName,mobile,password,ph
     }).catch((err)=>{
         toast.error("Something Went Wrong")
         store.dispatch(HideLoader())
+        UnAuthorizeRequest(err);
         return false;
     });
 }
 
-// Password Recovery
+// Password Recovery verify email
 export function RecoverVerifyEmailRequest(email){
     store.dispatch(ShowLoader())
-    let URL=BaseURL+"/RecoverVerifyEmail/"+email;
+    let URL=BaseURL+"/recover-verify-email/"+email;
     return axios.get(URL).then((res)=>{
         store.dispatch(HideLoader())
         if(res.status===200){
@@ -253,6 +262,66 @@ export function RecoverVerifyEmailRequest(email){
     }).catch((err)=>{
         toast.error("Something Went Wrong")
         store.dispatch(HideLoader())
+        UnAuthorizeRequest(err);
+        return false;
+    });
+}
+
+// verify otp
+export function RecoverVerifyOTPRequest(email,otp){
+    store.dispatch(ShowLoader())
+    let URL=BaseURL+"/recover-verify-otp/"+email+"/"+otp;
+    return axios.get(URL).then((res)=>{
+        store.dispatch(HideLoader())
+        if(res.status===200){
+            if(res.data['status']==="fail"){
+                toast.error(res.data['data']);
+                return false;
+            }
+            else{
+                setOTP(otp)
+                toast.success("Code Verification Success");
+                return true;
+            }
+        }
+        else{
+            toast.error("Something Went Wrong")
+            return false;
+        }
+    }).catch((err)=>{
+        toast.error("Invalid OTP Code")
+        store.dispatch(HideLoader())
+        UnAuthorizeRequest(err);
+        return false;
+    });
+}
+
+// Reset Password
+export function RecoverResetPassRequest(email,otp,password){
+    store.dispatch(ShowLoader())
+    let URL=BaseURL+"/recover-reset-password";
+    let PostBody={email:email,otp:otp,password:password}
+    return axios.post(URL,PostBody).then((res)=>{
+        store.dispatch(HideLoader())
+        if(res.status===200){
+            if(res.data['status']==="fail"){
+                toast.error(res.data['data']);
+                return false;
+            }
+            else{
+                setOTP(otp)
+                toast.success("New Password Created");
+                return true;
+            }
+        }
+        else{
+            toast.error("Something Went Wrong")
+            return false;
+        }
+    }).catch((err)=>{
+        toast.error("Something Went Wrong")
+        store.dispatch(HideLoader())
+        UnAuthorizeRequest(err)
         return false;
     });
 }

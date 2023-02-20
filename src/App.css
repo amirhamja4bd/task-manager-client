@@ -13,10 +13,15 @@
   }
 }
 .my-bg-primary{
-  background: #00b796;
+  background: #00b796!important;
+  color: #fff!important;
 }
+.my-bg-primary:hover{
+  background: #00a889!important;
+}
+
 .my-text-primary{
-  color: #00b796;
+  color: #00b796!important;
 }
 .App-header {
   background-color: #282c34;
@@ -28,9 +33,12 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.card{
+  border: none!important;
+}
 
 .App-link {
-  color: #61dafb;
+  color: #00b796;
 }
 
 @keyframes App-logo-spin {

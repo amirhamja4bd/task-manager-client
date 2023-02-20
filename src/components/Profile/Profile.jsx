@@ -57,20 +57,19 @@ const Profile = () => {
         }
     }
 
-
     return (
         <div className="container">
             <div className="row d-flex justify-content-center">
                 <div className="col-md-12">
-                    <div className="card">
+                    <div className="card shadow">
                         <div className="card-body">
                             <div className="container-fluid">
-                                <img  ref={(input)=>userImgView=input} className="icon-nav-img-lg" src={ProfileData['photo']} alt=""/>
+                                <img  ref={(input)=>userImgView=input} className="icon-nav-img-lg " src={ProfileData['photo']} alt=""/>
                                 <hr/>
                                 <div className="row">
                                     <div className="col-4 p-2">
                                         <label>Profile Picture</label>
-                                        <input onChange={PreviewImage}  ref={(input)=>userImgRef=input} placeholder="User Email" className="form-control animated fadeInUp" type="file"/>
+                                        <input onChange={PreviewImage}  ref={(input)=>userImgRef=input} placeholder="User Email" className="form-control animated fadeInUp " type="file"/>
                                     </div>
                                     <div className="col-4 p-2">
                                         <label>Email Address</label>
@@ -93,7 +92,7 @@ const Profile = () => {
                                         <input key={Date.now()} defaultValue={ProfileData['password']}  ref={(input)=>passwordRef=input} placeholder="User Password" className="form-control animated fadeInUp" type="password"/>
                                     </div>
                                     <div className="col-4 p-2">
-                                        <button onClick={UpdateMyProfile}  className="btn w-100 float-end btn-primary animated fadeInUp">Update</button>
+                                        <button onClick={UpdateMyProfile}  className="btn w-100 float-end my-bg-primary animated fadeInUp">Update</button>
                                     </div>
                                 </div>
                             </div>

@@ -8,8 +8,11 @@ export function updateToDO(id,status){
         inputOptions: {New: 'New', Completed: 'Completed', Progress: 'Progress', Canceled: 'Canceled'},
         inputValue:status,
     }).then((result)=>{
-        return updateStatusRequest(id, result.value).then((res)=>{
-            return res;
-        })
+        console.log(result);
+        if(result.isConfirmed){
+            return updateStatusRequest(id, result.value).then((res)=>{
+                return res;
+            })
+        }
     })
 }

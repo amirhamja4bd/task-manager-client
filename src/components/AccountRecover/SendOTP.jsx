@@ -18,7 +18,7 @@ const SendOTP = () => {
         else{
             RecoverVerifyEmailRequest(email).then((result)=>{
                 if(result===true){
-                    navigate("/VerifyOTP")
+                    navigate("/verify-otp")
                 }
             })
         }
@@ -33,10 +33,10 @@ const SendOTP = () => {
                             <div className="card-body">
                                 <h4>EMAIL ADDRESS</h4>
                                 <br/>
-                                <label>Your email address</label>
+                                {/* <label>Your email address</label> */}
                                 <input ref={(input)=>emailRef=input}  placeholder="User Email" className="form-control animated fadeInUp" type="email"/>
                                 <br/>
-                                <button onClick={VerifyEmail}  className="btn w-100 animated fadeInUp float-end btn-primary">Next</button>
+                                <button onClick={VerifyEmail}  className="btn w-100 animated fadeInUp float-end my-bg-primary">Next</button>
                             </div>
                         </div>
                     </div>
