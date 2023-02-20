@@ -9,7 +9,9 @@ import { setEmail, setOTP, getToken, setToken, setUserDetails } from "../helper/
 import { UnAuthorizeRequest } from "./UnAuthorizeRequest";
 
 
-const BaseURL="http://localhost:5000/api/v1"
+const BaseURL="https://cute-pig-hat.cyclic.app/api/v1"
+//const BaseURL="http://localhost:5000/api/v1"
+
 const AxiosHeader={headers:{"token":getToken()}}
 
 // Registration
