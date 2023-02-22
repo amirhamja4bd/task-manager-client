@@ -15,11 +15,9 @@ const Login = () => {
         let pass=passRef.value;
         if(IsEmail(email)){
             toast.error("Invalid Email Address")
-            alert("Invalid Email Address")
         }
         else if(IsEmpty(pass)){
             toast.error("Password Required")
-            alert("Password Required")
         }
         else{
             loginRequest(email,pass).then((result)=>{
